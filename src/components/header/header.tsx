@@ -1,10 +1,11 @@
-import logo from "../images/logo.png"
+import logo from "../../app/images/logo.webp"
 import Image from "next/image";
 import "./header.css"
 export default function Header () {
     return (
-
+        <header>
         <div className="header"> 
+       
             <Image
             aria-hidden
             src={logo}
@@ -18,12 +19,9 @@ export default function Header () {
           <div>Contact Us</div>
           <div>About</div>
 
-
-           
-        
-        
         
         </div>
+        </header>
    
 
 

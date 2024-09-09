@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 :root {
-  --background: var(--purple3);
+  --background: var(--purple5);
   --foreground: #171717;
   --purple1: #6d5cbc;
   --purple2: #b6addd;
