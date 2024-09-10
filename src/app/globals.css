@@ -37,6 +37,17 @@ body {
 .title {
   font-weight: bold;
 }
+.line{
+   width: 35px; 
+   background-color: var(--purple1); 
+   height: 2.5px; 
+   border: none;
+   margin-top: 10px;
+}
+.together {
+  display: flex;
+  gap :1rem;
+}
 
 @layer utilities {
   .text-balance {

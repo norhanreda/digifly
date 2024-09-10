@@ -1,0 +1,10 @@
+.map {
+    height: 400px;
+    width: 50%; 
+    
+}
+.loc{
+    background: var(--purple1);
+    color: #fff;
+    padding: 20px;
+}
