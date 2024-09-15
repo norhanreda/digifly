@@ -65,19 +65,19 @@ const Form: React.FC = () => {
         <div className="form-row">
           <div className="form-group">
             <label htmlFor="firstname">First name</label>
-            <input name="FirstName" id="firstname" type="text" placeholder="First name" value={formData.FirstName} onChange={handleChange} required />
+            <input name="FirstName" id="firstname" type="text" pattern="[a-zA-Z]{2,64}" placeholder="First name" value={formData.FirstName} onChange={handleChange} required />
             {errors.FirstName && <div className="error">{errors.FirstName}</div>}
           </div>
           <div className="form-group">
             <label htmlFor="lastname">Last name</label>
-            <input name="LastName" id="lastname" type="text" placeholder="Last name" value={formData.LastName} onChange={handleChange} required />
+            <input name="LastName" id="lastname" type="text" pattern="[a-zA-Z]{2,64}" placeholder="Last name" value={formData.LastName} onChange={handleChange} required />
             {errors.LastName && <div className="error">{errors.LastName}</div>}
           </div>
         </div>
 
         <div className="form-group">
           <label htmlFor="mobile">Mobile Number</label>
-          <input name="Phone" id="mobile" type="tel" placeholder="Mobile Number" value={formData.Phone} onChange={handleChange} required />
+          <input name="Phone" id="mobile" type="tel" placeholder="Mobile Number" pattern='01[0125][0-9]{8}' value={formData.Phone} onChange={handleChange} required />
           {errors.Phone && <div className="error">{errors.Phone}</div>}
         </div>
 
