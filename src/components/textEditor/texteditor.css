@@ -1,0 +1,22 @@
+.editor {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  .toolbar {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+  
+  .toolbar button {
+    padding: 5px 10px;
+    margin: 0 5px;
+    font-size: 14px;
+    border: 1px solid 
+  }

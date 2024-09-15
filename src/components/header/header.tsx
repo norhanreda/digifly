@@ -19,12 +19,12 @@ export default function Header() {
                 <Link href="/contactUs">Contact Us</Link>
                 <Link href="/About">About</Link>
               </div>
-          
-            </div>
-            <div className="lang">
+              <div className="lang">
                 <button><Image aria-hidden src={english} alt="lang-eng" width={30} height={30} />   </button>EN
-
               </div>
+              
+            </div>
+           
           </div>
         </div>
       </div>

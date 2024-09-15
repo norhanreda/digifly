@@ -1,35 +1,42 @@
-
 .header {
     padding: 1.5rem;
-    /* position: fixed;
-    top: 0;
-    left: 0; */
-    /* z-index: 55555; */
-    width:100%;
+    width: 100%;
     transition: all 0.3s;
 }
+
 .scrolled {
     background: var(--gradient-bg);
     padding: 1rem 0;
 }
+
 .header .header-row {
     display: flex;
     justify-content: space-between;
     align-items: center;
-
 }
 
 .header .header-brand {
     display: flex;
     align-items: center;
     gap: 0.5rem;
-} 
+    width: 100%; /* Make sure this takes the full width */
+}
+
 .header-actions-btns {
     display: flex;
     gap: 1rem;
-
-
 }
-.lang{
-    /*  */
+
+.header-actions {
+    /* margin-left: auto; Pushes the header actions to the right */
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.lang {
+    /* margin-left: auto; Pushes the language button to the most right */
+    display: flex;
+    align-items:flex-end;
+    gap: 0.5rem;
 }

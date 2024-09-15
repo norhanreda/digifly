@@ -19,9 +19,7 @@ const Map: React.FC = () => {
         }).addTo(map);
     
         const customIcon = L.icon({
-          iconUrl: '/leaflet/marker-icon.png',
-          iconRetinaUrl: '/leaflet/marker-icon-2x.png',
-          shadowUrl: '/leaflet/marker-shadow.png',
+          iconUrl: 'https://png.pngtree.com/png-vector/20230413/ourmid/pngtree-3d-location-icon-clipart-in-transparent-background-vector-png-image_6704161.png',
           iconSize: [32, 32], // icon size
           iconAnchor: [16, 32], // point of the icon which will correspond to marker's location
           popupAnchor: [0, -32] // point from which the popup should open relative to the iconAnchor
