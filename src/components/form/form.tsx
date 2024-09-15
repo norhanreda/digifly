@@ -54,6 +54,7 @@ const Form: React.FC = () => {
       setErrors({});
       console.log(formData);
       dispatch(createUserapi(formData));
+      window.location.reload();
     } else {
       setErrors(formErrors);
     }
