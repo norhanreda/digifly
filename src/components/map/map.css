@@ -1,10 +1,20 @@
 .map {
     height: 400px;
     width: 50%; 
+    z-index: 1;
+    margin: auto;
     
 }
 .loc{
     background: var(--purple1);
     color: #fff;
     padding: 20px;
+}
+.digi{
+    color: var(--green1);
+    font-weight: bold;
+}
+.fly{
+    color: var(--white);
+    font-weight: bold;
 }

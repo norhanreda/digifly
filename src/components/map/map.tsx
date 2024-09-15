@@ -30,7 +30,7 @@ const Map: React.FC = () => {
         if (!marker) {
           marker = L.marker([30.061748208037105, 31.337524913021518], { icon: customIcon }).addTo(map); 
       
-          marker.bindTooltip("<div class='loc'>Digifly Company welcomes You</div>", {
+          marker.bindTooltip("<div class='loc'><p><span class='digi'>Digi</span><span class='fly'>fly</span> Company </p><p>welcomes You</p></div>", {
             direction: 'top'
           }).openTooltip();
         }

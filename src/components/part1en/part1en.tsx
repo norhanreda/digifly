@@ -1,7 +1,11 @@
+import Form from "../form/form"
+import Table from "../table/table";
+
 export default function Part1en() {
   return (
     <>
-      <div className="together">
+    <div className="container">
+      <div className="form-row">
         <hr className="line" />
         <h1 className="title">Part1</h1>
       </div>
@@ -13,6 +17,11 @@ export default function Part1en() {
         including both POST requests for adding a user and GET requests for
         displaying data in the table.
       </p>
+      <div className="together">
+      <Form/>
+      <Table/>
+      </div>
+      </div>
     </>
   );
 }
