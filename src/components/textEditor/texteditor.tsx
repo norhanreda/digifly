@@ -190,37 +190,46 @@
 import React, { useState } from 'react';
 import './texteditor.css';
 
-const TextEditor = () => {
-  const [content, setContent] = useState('');
-  const [isBold, setIsBold] = useState(false);
-  const [isItalic, setIsItalic] = useState(false);
-  const [isUnderline, setIsUnderline] = useState(false);
-  const [fontSize, setFontSize] = useState(16);
-  const [fontFamily, setFontFamily] = useState('Arial');
-  const [textAlign, setTextAlign] = useState('left');
-  const [history, setHistory] = useState([{
-    content: '',
-    isBold: false,
-    isItalic: false,
-    isUnderline: false,
-    fontSize: 16,
-    fontFamily: 'Arial',
-    textAlign: 'left',
-  }]);
-  const [historyIndex, setHistoryIndex] = useState(0);
+interface EditorState {
+  content: string;
+  isBold: boolean;
+  isItalic: boolean;
+  isUnderline: boolean;
+  fontSize: number;
+  fontFamily: string;
+  textAlign: string;
+}
 
-  // Save the current state to history
-  const saveToHistory = (newState) => {
+const TextEditor: React.FC = () => {
+  const [content, setContent] = useState<string>('');
+  const [isBold, setIsBold] = useState<boolean>(false);
+  const [isItalic, setIsItalic] = useState<boolean>(false);
+  const [isUnderline, setIsUnderline] = useState<boolean>(false);
+  const [fontSize, setFontSize] = useState<number>(16);
+  const [fontFamily, setFontFamily] = useState<string>('Arial');
+  const [textAlign, setTextAlign] = useState<string>('left');
+  const [history, setHistory] = useState<EditorState[]>([
+    {
+      content: '',
+      isBold: false,
+      isItalic: false,
+      isUnderline: false,
+      fontSize: 16,
+      fontFamily: 'Arial',
+      textAlign: 'left',
+    }
+  ]);
+  const [historyIndex, setHistoryIndex] = useState<number>(0);
+
+  const saveToHistory = (newState: EditorState): void => {
     const newHistory = [...history.slice(0, historyIndex + 1), newState];
     setHistory(newHistory);
     setHistoryIndex(newHistory.length - 1);
   };
 
-  const handleTextChange = (e) => {
+  const handleTextChange = (e: React.ChangeEvent<HTMLTextAreaElement>): void => {
     const newContent = e.target.value;
     setContent(newContent);
-
-    // Save the new content state to history
     saveToHistory({
       content: newContent,
       isBold,
@@ -232,7 +241,7 @@ const TextEditor = () => {
     });
   };
 
-  const undo = () => {
+  const undo = (): void => {
     if (historyIndex > 0) {
       const previousState = history[historyIndex - 1];
       setHistoryIndex(historyIndex - 1);
@@ -240,7 +249,7 @@ const TextEditor = () => {
     }
   };
 
-  const redo = () => {
+  const redo = (): void => {
     if (historyIndex < history.length - 1) {
       const nextState = history[historyIndex + 1];
       setHistoryIndex(historyIndex + 1);
@@ -248,7 +257,7 @@ const TextEditor = () => {
     }
   };
 
-  const applyEditorState = (state) => {
+  const applyEditorState = (state: EditorState): void => {
     setContent(state.content);
     setIsBold(state.isBold);
     setIsItalic(state.isItalic);
@@ -258,7 +267,7 @@ const TextEditor = () => {
     setTextAlign(state.textAlign);
   };
 
-  const toggleBold = () => {
+  const toggleBold = (): void => {
     const newBoldState = !isBold;
     setIsBold(newBoldState);
     saveToHistory({
@@ -272,7 +281,7 @@ const TextEditor = () => {
     });
   };
 
-  const toggleItalic = () => {
+  const toggleItalic = (): void => {
     const newItalicState = !isItalic;
     setIsItalic(newItalicState);
     saveToHistory({
@@ -286,7 +295,7 @@ const TextEditor = () => {
     });
   };
 
-  const toggleUnderline = () => {
+  const toggleUnderline = (): void => {
     const newUnderlineState = !isUnderline;
     setIsUnderline(newUnderlineState);
     saveToHistory({
@@ -300,7 +309,7 @@ const TextEditor = () => {
     });
   };
 
-  const changeFontSize = (size) => {
+  const changeFontSize = (size: number): void => {
     setFontSize(size);
     saveToHistory({
       content,
@@ -313,7 +322,7 @@ const TextEditor = () => {
     });
   };
 
-  const changeFontFamily = (font) => {
+  const changeFontFamily = (font: string): void => {
     setFontFamily(font);
     saveToHistory({
       content,
@@ -326,7 +335,7 @@ const TextEditor = () => {
     });
   };
 
-  const alignText = (alignment) => {
+  const alignText = (alignment: string): void => {
     setTextAlign(alignment);
     saveToHistory({
       content,
