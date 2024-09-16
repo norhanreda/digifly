@@ -48,6 +48,7 @@ body {
   display: flex;
   gap :1rem;
   flex-wrap: wrap;
+  /* text-align: right; */
 }
 .container {
   width: 100%;

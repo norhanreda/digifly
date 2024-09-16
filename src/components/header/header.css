@@ -40,3 +40,7 @@
     align-items:flex-end;
     gap: 0.5rem;
 }
+
+.arabic {
+    flex-direction: row-reverse;
+}

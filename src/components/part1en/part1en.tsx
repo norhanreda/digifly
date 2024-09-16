@@ -1,26 +1,60 @@
+"use client";
 import Form from "../form/form"
 import Table from "../table/table";
-
+import { useSelector } from "react-redux";
 export default function Part1en() {
+
+  interface User {
+    id: number;
+    FirstName: string;
+    LastName: string;
+    Phone: string;
+    Email: string;
+  }
+  interface State {
+    users: User[];
+    language: string;
+    error: string | null;
+  }
+  
+  const language:string = useSelector((state: State) => state.language); 
   return (
     <>
     <div className="container">
-      <div className="form-row">
-        <hr className="line" />
-        <h1 className="title">Part1</h1>
-      </div>
+    {language ==="en"&& <div className="together"><hr className="line" />
+        <h1 className="title">Part 1</h1></div>}
+      
+        {language ==="ar"&& <div className="together" dir="rtl">
+          <hr className="line" dir="rtl" />
+        <h1 className="title" dir="rtl" >الجزء رقم 1</h1> 
+        
+        </div>
+        
+        }
+      {language ==="en"&&
       <p>
-        Utilize the provided Strapi API from the assessment to post user data
-        into your Redux store. You are required to add one user into the
-        &apos;users&apos; collection and display this data in a table using a
-        GET request. Ensure the implementation of Redux for state management,
-        including both POST requests for adding a user and GET requests for
-        displaying data in the table.
-      </p>
-      <div className="together">
+      Utilize the provided Strapi API from the assessment to post user data
+      into your Redux store. You are required to add one user into the
+      &apos;users&apos; collection and display this data in a table using a
+      GET request. Ensure the implementation of Redux for state management,
+      including both POST requests for adding a user and GET requests for
+      displaying data in the table.
+    </p>
+      }
+      {language ==="ar"&&
+      <p dir="rtl">
+      استخدم واجهة برمجة تطبيقات Strapi المقدمة من التقييم لنشر بيانات المستخدم في متجر Redux الخاص بك. يجب عليك إضافة مستخدم واحد إلى مجموعة "المستخدمين وعرض هذه البيانات في جدول باستخدام طلب GET. تأكد من تنفيذ Redux لإدارة الحالة، بما في ذلك طلبات POST الإضافة مستخدم وطلبات GET لعرض البيانات في الجدول.
+    </p>
+      }
+      
+      {language ==="en"&& <div className="together">
       <Form/>
       <Table/>
-      </div>
+      </div>}
+      {language ==="ar"&& <div className="together">
+      <Table/>
+      <Form/>
+      </div>}
       </div>
     </>
   );

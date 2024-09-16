@@ -2,20 +2,7 @@
 import React, { useState } from 'react';
 import { createUserapi } from "../../store/action";
 import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
 import './form.css';
-interface User {
-  FirstName: string;
-  LastName: string;
-  Email: string;
-  Phone: string;
-}
-interface State {
-  users: User[];
-  language: string;
-  error: string | null;
-}
-
 
 interface FormData {
   FirstName: string;
@@ -25,8 +12,6 @@ interface FormData {
 }
 
 const Form: React.FC = () => {
-  
-const language:string = useSelector((state: State) => state.language); 
   const dispatch = useDispatch();
   const [formData, setFormData] = useState<FormData>({
     FirstName: '',
@@ -77,39 +62,7 @@ const language:string = useSelector((state: State) => state.language);
 
   return (
     <>
-    {language==="en"&&
-      <form className="form" onSubmit={handleSubmit}>
-        <div className="form-row">
-          <div className="form-group">
-            <label htmlFor="firstname">First name</label>
-            <input name="FirstName" id="firstname" type="text" pattern="[a-zA-Z]{2,64}" placeholder="First name" value={formData.FirstName} onChange={handleChange} required />
-            {errors.FirstName && <div className="error">{errors.FirstName}</div>}
-          </div>
-          <div className="form-group">
-            <label htmlFor="lastname">Last name</label>
-            <input name="LastName" id="lastname" type="text" pattern="[a-zA-Z]{2,64}" placeholder="Last name" value={formData.LastName} onChange={handleChange} required />
-            {errors.LastName && <div className="error">{errors.LastName}</div>}
-          </div>
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="mobile">Mobile Number</label>
-          <input name="Phone" id="mobile" type="tel" placeholder="Mobile Number" pattern='01[0125][0-9]{8}' value={formData.Phone} onChange={handleChange} required />
-          {errors.Phone && <div className="error">{errors.Phone}</div>}
-        </div>
-
-        <div className="form-group">
-          <label htmlFor="email">Email</label>
-          <input name="Email" id="email" type="email" placeholder="Email" value={formData.Email} onChange={handleChange} required />
-          {errors.Email && <div className="error">{errors.Email}</div>}
-        </div>
-
-        <button className="btn" type="submit">Send</button>
-      </form>
-}
-{
-  language==="ar"&&
-  <form className="form" onSubmit={handleSubmit} dir='rtl'>
+      <form className="form" onSubmit={handleSubmit} dir='rtl'>
         <div className="form-row">
           <div className="form-group">
             <label htmlFor="firstname">الإسم الأول </label>
@@ -137,7 +90,6 @@ const language:string = useSelector((state: State) => state.language);
 
         <button className="btn" type="submit">إرسال</button>
       </form>
-}
     </>
   );
 };

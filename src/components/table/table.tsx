@@ -11,9 +11,16 @@ interface User {
   Email: string;
 }
 
+interface State {
+  users: User[];
+  language: string;
+  error: string | null;
+}
+
 const Table: React.FC = () => {
   const dispatch = useDispatch();
-  const users: User[] = useSelector((state: any) => state.users); 
+  const users: User[] = useSelector((state: State) => state.users); 
+  const language:string = useSelector((state: State) => state.language); 
 
   useEffect(() => {
     dispatch(fetchUser());
@@ -21,7 +28,7 @@ const Table: React.FC = () => {
 
   return (
     <>
-      <div className="col">
+      {language==="en" && <div className="col">
         <h3 className="results">Results:</h3>
         <table>
           <thead>
@@ -44,6 +51,31 @@ const Table: React.FC = () => {
           </tbody>
         </table>
       </div>
+}
+{language==="ar" && <div className="col" dir="rtl">
+        <h3 className="results">النتائج:</h3>
+        <table>
+          <thead>
+            <tr>
+              <th>الإسم الأول </th>
+              <th>الإسم الأخير</th>
+              <th>رقم الموبايل</th>
+              <th>البريد الإلكترونى</th>
+            </tr>
+          </thead>
+          <tbody>
+            {users.map((user: User) => (
+              <tr key={user.id}>
+                <td>{user.FirstName}</td>
+                <td>{user.LastName}</td>
+                <td>{user.Phone}</td>
+                <td>{user.Email}</td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+}
     </>
   );
 };

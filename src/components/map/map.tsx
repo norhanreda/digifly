@@ -3,8 +3,22 @@ import React, { useEffect } from 'react';
 import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import "./map.css"
+import { useSelector } from "react-redux";
+interface User {
+  id: number;
+  FirstName: string;
+  LastName: string;
+  Phone: string;
+  Email: string;
+}
+interface State {
+  users: User[];
+  language: string;
+  error: string | null;
+}
 
 const Map: React.FC = () => {
+  const language:string = useSelector((state: State) => state.language); 
   useEffect(() => {
     let map: L.Map | undefined;
     let marker: L.Marker | undefined;
@@ -27,8 +41,17 @@ const Map: React.FC = () => {
 
         if (!marker) {
           marker = L.marker([30.061748208037105, 31.337524913021518], { icon: customIcon }).addTo(map); 
+          let tooltipContent = "<div class='loc'><p><span class='digi'>Digi</span><span class='fly'>fly</span> Company</p><p>welcomes You</p></div>";
+          if(language==='en') {
+             tooltipContent = "<div class='loc'><p><span class='digi'>Digi</span><span class='fly'>fly</span> Company</p><p>welcomes You</p></div>";
+          }
+          else{
+            tooltipContent = "<div class='loc' dir='rtl' > شركة <span class='digi'>ديجى</span>  <span class='fly'>فلاى </span>ترحب بكم </div>";
+            
+            
+          }
       
-          marker.bindTooltip("<div class='loc'><p><span class='digi'>Digi</span><span class='fly'>fly</span> Company </p><p>welcomes You</p></div>", {
+          marker.bindTooltip(tooltipContent, {
             direction: 'top'
           }).openTooltip();
         }
