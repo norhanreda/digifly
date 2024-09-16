@@ -89,8 +89,8 @@ export default function Header() {
                     height={80}
                   />
                 </div>
-                <div className="header-actions arabic">
-                  <div className="header-actions-btns arabic" lang="ar">
+                <div className="header-actions-ar arabic">
+                  <div className="header-actions-btns-ar arabic" lang="ar">
                     <Link href="/home" className={currentPath === "/home" ? "active":""}>الرئسية</Link>
                     <Link href="/categories" className={currentPath === "/categories" ? "active":""}>الأقسام</Link>
                     <Link href="/contactUs" className={currentPath === "/contactUs" ? "active":""}>تواصل&nbsp;معنا</Link>
