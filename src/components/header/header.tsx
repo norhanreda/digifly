@@ -7,6 +7,7 @@ import english from "../../app/images/english.png";
 import arabic from "../../app/images/Flag_of_Egypt.svg.webp";
 import { useSelector, useDispatch } from "react-redux";
 import { changeLanguage } from "../../store/action";
+import { usePathname } from 'next/navigation'
 interface User {
   id: number;
   FirstName: string;
@@ -23,6 +24,7 @@ interface State {
 export default function Header() {
   const language: string = useSelector((state: State) => state.language);
   const dispatch = useDispatch();
+  const currentPath = usePathname();
   const switchLang = () => {
     if (language === "ar") {
       dispatch(changeLanguage("en"));
@@ -48,10 +50,10 @@ export default function Header() {
                 </div>
                 <div className="header-actions">
                   <div className="header-actions-btns">
-                    <Link href="/home">Home</Link>
-                    <Link href="/categories">Categories</Link>
-                    <Link href="/contactUs">Contact Us</Link>
-                    <Link href="/About">About</Link>
+                    <Link href="/home" className={currentPath === "/home" ? "active":""} >Home</Link>
+                    <Link href="/categories" className={currentPath === "/categories" ? "active":""}>Categories</Link>
+                    <Link href="/contactUs" className={currentPath === "/contactUs" ? "active":""}>Contact&nbsp;us</Link>
+                    <Link href="/About" className={currentPath === "/About" ? "active":""}>About</Link>
                   </div>
                   <div className="lang">
                     <button onClick={switchLang}>
@@ -88,11 +90,11 @@ export default function Header() {
                   />
                 </div>
                 <div className="header-actions arabic">
-                  <div className="header-actions-btns arabic">
-                    <Link href="/home">الرئسية</Link>
-                    <Link href="/categories">الأقسام</Link>
-                    <Link href="/contactUs">تواصل معنا</Link>
-                    <Link href="/About">من نحن</Link>
+                  <div className="header-actions-btns arabic" lang="ar">
+                    <Link href="/home" className={currentPath === "/home" ? "active":""}>الرئسية</Link>
+                    <Link href="/categories" className={currentPath === "/categories" ? "active":""}>الأقسام</Link>
+                    <Link href="/contactUs" className={currentPath === "/contactUs" ? "active":""}>تواصل&nbsp;معنا</Link>
+                    <Link href="/About" className={currentPath === "/About" ? "active":""}>من&nbsp;نحن</Link>
                   </div>
 
                   <div className="lang">

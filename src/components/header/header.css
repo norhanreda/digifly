@@ -8,6 +8,9 @@
     background: var(--gradient-bg);
     padding: 1rem 0;
 }
+.active{
+    color: var(--green1);
+}
 
 .header .header-row {
     display: flex;
@@ -22,16 +25,17 @@
     width: 100%; /* Make sure this takes the full width */
 }
 
+
 .header-actions-btns {
+    margin-left: 30%;
     display: flex;
-    gap: 1rem;
+    gap: 3rem;
 }
 
 .header-actions {
-    /* margin-left: auto; Pushes the header actions to the right */
     display: flex;
     align-items: center;
-    gap: 1rem;
+    gap: 30rem;
 }
 
 .lang {
@@ -44,3 +48,38 @@
 .arabic {
     flex-direction: row-reverse;
 }
+
+
+@media screen and (min-width = 768px) {
+    .header-actions-btns {
+        gap: 2rem;
+        margin-left: 0;
+    }
+    
+    .header-actions {
+        gap: 2rem;
+
+    }
+    
+  }
+  @media screen and (min-width = 992px) {
+    .header-actions-btns {
+        gap: 2rem;
+        margin-left: 0;
+    }
+    
+    .header-actions {
+       
+        gap: 2rem;
+    }
+    
+  }
+  @media screen and (min-width = 1200px) {
+    .header-actions-btns {
+        margin-left: 0;
+        gap: 2rem;
+    }
+    
+    .header-actions {
+        gap: 2rem;
+    }}
