@@ -45,10 +45,10 @@ const Map: React.FC = () => {
           if(language==='en') {
              tooltipContent = "<div class='loc'><p><span class='digi'>Digi</span><span class='fly'>fly</span> Company</p><p>welcomes You</p></div>";
           }
-          else{
+          else if(language==='ar'){
             tooltipContent = "<div class='loc' dir='rtl' > شركة <span class='digi'>ديجى</span>  <span class='fly'>فلاى </span>ترحب بكم </div>";
             
-            
+
           }
       
           marker.bindTooltip(tooltipContent, {
@@ -64,7 +64,7 @@ const Map: React.FC = () => {
         map.remove();
       }
     };
-  }, []);
+  }, [language]);
 
   return (
     <div>
