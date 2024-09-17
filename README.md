@@ -5,7 +5,7 @@ https://digifly-hjop.vercel.app/
 
 
 
-### how to use the app local 
+# how to use the app local 
 
 ## clone the repo 
 
