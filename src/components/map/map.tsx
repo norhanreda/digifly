@@ -1,10 +1,12 @@
 "use client";
 import React, { useEffect } from 'react';
-import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import "./map.css"
 import { useSelector } from "react-redux";
 import {State} from "../../store/types";
+import dynamic from 'next/dynamic';
+
+const L = typeof window !== 'undefined' ? require('leaflet') : undefined;
 
 const Map: React.FC = () => {
   const language:string = useSelector((state: State) => state.language); 
@@ -12,8 +14,8 @@ const Map: React.FC = () => {
     let map: L.Map | undefined;
     let marker: L.Marker | undefined;
 
-    // if (typeof window !== 'undefined') {
-    //   // Check if the map is already initialized
+    if (typeof window !== 'undefined') {
+      // Check if the map is already initialized
       if (!map) {
         map = L.map('map').setView([30.061748208037105, 31.337524913021518], 20); 
         
@@ -39,13 +41,13 @@ const Map: React.FC = () => {
             
 
           }
-      
+          if(marker)
           marker.bindTooltip(tooltipContent, {
             direction: 'top'
           }).openTooltip();
         }
       }
-    // }
+    }
 
     return () => {
       // Clean up the map instance when the component unmounts
@@ -62,4 +64,6 @@ const Map: React.FC = () => {
   );
 };
 
-export default Map;
+// export default Map;
+export default dynamic(() => Promise.resolve(Map), { ssr: false });
+
