@@ -2,16 +2,17 @@
 "use client";
 import React, { useState } from 'react';
 import './texteditor.css';
-import {EditorState} from "../../store/types";
+import {EditorState,TextAlign} from "../../store/types";
 
 const TextEditor: React.FC = () => {
+  // type TextAlign = 'left' | 'center' | 'right'; // Define TextAlign type
   const [content, setContent] = useState<string>('');
   const [isBold, setIsBold] = useState<boolean>(false);
   const [isItalic, setIsItalic] = useState<boolean>(false);
   const [isUnderline, setIsUnderline] = useState<boolean>(false);
   const [fontSize, setFontSize] = useState<number>(16);
   const [fontFamily, setFontFamily] = useState<string>('Arial');
-  const [textAlign, setTextAlign] = useState<string>('left');
+  const [textAlign, setTextAlign] = useState<TextAlign>('left');
   const [history, setHistory] = useState<EditorState[]>([
     {
       content: '',
@@ -69,6 +70,7 @@ const TextEditor: React.FC = () => {
     setFontSize(state.fontSize);
     setFontFamily(state.fontFamily);
     setTextAlign(state.textAlign);
+    console.log(state.textAlign)
   };
 
   const toggleBold = (): void => {
@@ -139,7 +141,7 @@ const TextEditor: React.FC = () => {
     });
   };
 
-  const alignText = (alignment: string): void => {
+  const alignText = (alignment: TextAlign): void => {
     setTextAlign(alignment);
     saveToHistory({
       content,
@@ -151,7 +153,6 @@ const TextEditor: React.FC = () => {
       textAlign: alignment,
     });
   };
-
   return (
     <div className="editor">
       <div className="toolbar">

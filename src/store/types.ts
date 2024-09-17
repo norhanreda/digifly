@@ -18,6 +18,7 @@ export interface User {
     Email: string;
     Phone: string;
   }
+  export type TextAlign = 'left' | 'center' | 'right';
   export interface EditorState {
     content: string;
     isBold: boolean;
@@ -25,5 +26,5 @@ export interface User {
     isUnderline: boolean;
     fontSize: number;
     fontFamily: string;
-    textAlign: string;
+    textAlign: TextAlign;
   }
