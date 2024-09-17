@@ -21,7 +21,7 @@ interface State {
   language: string;
   error: string | null;
 }
-export default function Header() {
+const Header: React.FC = () => {
   const language: string = useSelector((state: State) => state.language);
   const dispatch = useDispatch();
   const currentPath = usePathname();
@@ -118,4 +118,5 @@ export default function Header() {
       )}
     </>
   );
-}
+};
+export default Header;

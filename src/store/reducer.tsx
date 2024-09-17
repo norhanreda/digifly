@@ -20,15 +20,12 @@ interface User {
 
 const userReducer = (state: State = initialState, action: any): State => {
     switch (action.type) {
-        case 'FETCH_USER_SUCCESS':
+        case 'USER_SUCCESS':
             return { ...state, users: action.payload, error: null };
-        case 'FETCH_USER_FAILURE':
-        case 'CREATE_USER_FAILURE':
-            return { ...state, error: action.error };
+        case 'USER_FAILURE':
         case 'CHANGE_LANGUAGE':
             return { ...state, language: action.payload };
-        case 'CREATE_USER_SUCCESS':
-            return state;
+        
         default:
             return state;
     }

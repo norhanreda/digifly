@@ -1,7 +1,7 @@
 "use client";
 import Map from "../map/map"
 import { useSelector } from "react-redux";
-export default function Part2en() {
+const Part2en: React.FC = () => {
   interface User {
     id: number;
     FirstName: string;
@@ -42,5 +42,6 @@ export default function Part2en() {
      </div>
       </>
     );
-  }
+  };
+  export default Part2en;
   

@@ -1,7 +1,7 @@
 "use client";
 import TextEditor from "../textEditor/texteditor";
 import { useSelector } from "react-redux";
-export default function Part3en() {
+const Part3en: React.FC = () =>{
   interface User {
     id: number;
     FirstName: string;
@@ -43,4 +43,5 @@ export default function Part3en() {
         </div>
       </>
     );
-  }
+  };
+  export default Part3en;
