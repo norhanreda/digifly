@@ -1,19 +1,8 @@
 "use client";
 import TextEditor from "../textEditor/texteditor";
 import { useSelector } from "react-redux";
+import {State} from "../../store/types";
 const Part3en: React.FC = () =>{
-  interface User {
-    id: number;
-    FirstName: string;
-    LastName: string;
-    Phone: string;
-    Email: string;
-  }
-  interface State {
-    users: User[];
-    language: string;
-    error: string | null;
-  }
   
   const language:string = useSelector((state: State) => state.language); 
     return (

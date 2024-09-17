@@ -4,18 +4,7 @@ import L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import "./map.css"
 import { useSelector } from "react-redux";
-interface User {
-  id: number;
-  FirstName: string;
-  LastName: string;
-  Phone: string;
-  Email: string;
-}
-interface State {
-  users: User[];
-  language: string;
-  error: string | null;
-}
+import {State} from "../../store/types";
 
 const Map: React.FC = () => {
   const language:string = useSelector((state: State) => state.language); 

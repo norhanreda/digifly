@@ -1,29 +1,19 @@
 "use client";
 import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useAppSelector, useAppDispatch } from '../../store/hooks'
 import { fetchUser } from "../../store/action";
 import "./table.css"
-interface User {
-  id: number;
-  FirstName: string;
-  LastName: string;
-  Phone: string;
-  Email: string;
-}
+import {State,User} from "../../store/types";
 
-interface State {
-  users: User[];
-  language: string;
-  error: string | null;
-}
+
 
 const Table: React.FC = () => {
-  const dispatch = useDispatch();
-  const users: User[] = useSelector((state: State) => state.users); 
-  const language:string = useSelector((state: State) => state.language); 
+  const dispatch = useAppDispatch();
+  const users: User[] = useAppSelector((state: State) => state.users); 
+  const language:string = useAppSelector((state: State) => state.language); 
 
   useEffect(() => {
-    dispatch<any>(fetchUser());
+    dispatch(fetchUser());
   }, [dispatch]);
 
   

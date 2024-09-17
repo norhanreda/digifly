@@ -1,33 +1,16 @@
 "use client";
 import React, { useState } from 'react';
 import { createUserapi } from "../../store/action";
-import { useDispatch } from "react-redux";
-import { useSelector } from "react-redux";
+import { useAppSelector, useAppDispatch } from '../../store/hooks'
 import './form.css';
-interface User {
-  FirstName: string;
-  LastName: string;
-  Email: string;
-  Phone: string;
-}
-interface State {
-  users: User[];
-  language: string;
-  error: string | null;
-}
+import {State,FormData} from "../../store/types";
 
 
-interface FormData {
-  FirstName: string;
-  LastName: string;
-  Email: string;
-  Phone: string;
-}
 
 const Form: React.FC = () => {
   
-const language:string = useSelector((state: State) => state.language); 
-  const dispatch = useDispatch();
+const language:string = useAppSelector((state: State) => state.language); 
+  const dispatch = useAppDispatch();
   const [formData, setFormData] = useState<FormData>({
     FirstName: '',
     LastName: '',
@@ -68,7 +51,7 @@ const language:string = useSelector((state: State) => state.language);
     if (Object.keys(formErrors).length === 0) {
       setErrors({});
       console.log(formData);
-      dispatch<any>(createUserapi(formData));
+      dispatch(createUserapi(formData));
       window.location.reload();
     } else {
       setErrors(formErrors);

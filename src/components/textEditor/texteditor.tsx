@@ -2,16 +2,7 @@
 "use client";
 import React, { useState } from 'react';
 import './texteditor.css';
-
-interface EditorState {
-  content: string;
-  isBold: boolean;
-  isItalic: boolean;
-  isUnderline: boolean;
-  fontSize: number;
-  fontFamily: string;
-  textAlign: string;
-}
+import {EditorState} from "../../store/types";
 
 const TextEditor: React.FC = () => {
   const [content, setContent] = useState<string>('');

@@ -3,20 +3,8 @@ import React from 'react';
 import Form from '../form/form';
 import Table from '../table/table';
 import { useSelector } from 'react-redux';
+import {State} from "../../store/types";
 
-interface User {
-  id: number;
-  FirstName: string;
-  LastName: string;
-  Phone: string;
-  Email: string;
-}
-
-interface State {
-  users: User[];
-  language: string;
-  error: string | null;
-}
 
 const Part1en: React.FC = () => {
   const language: string = useSelector((state: State) => state.language);

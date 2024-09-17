@@ -2,20 +2,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import './footer.css';
-
-interface User {
-  id: number;
-  FirstName: string;
-  LastName: string;
-  Phone: string;
-  Email: string;
-}
-
-interface State {
-  users: User[];
-  language: string;
-  error: string | null;
-}
+import {State} from "../../store/types";
 
 const Footer: React.FC = () => {
   const language: string = useSelector((state: State) => state.language);

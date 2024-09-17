@@ -5,37 +5,20 @@ import "./header.css";
 import Link from "next/link";
 import english from "../../app/images/english.png";
 import arabic from "../../app/images/Flag_of_Egypt.svg.webp";
-import { useSelector, useDispatch } from "react-redux";
+import { useAppSelector, useAppDispatch } from '../../store/hooks'
 import { changeLanguage } from "../../store/action";
 import { usePathname } from 'next/navigation'
-interface User {
-  id: number;
-  FirstName: string;
-  LastName: string;
-  Phone: string;
-  Email: string;
-}
-
-interface State {
-  users: User[];
-  language: string;
-  error: string | null;
-}
-// type UserSuccessAction = { type: 'USER_SUCCESS'; payload: User[] };
-// type UserFailureAction = { type: 'USER_FAILURE'; error: string };
-// type ChangeLanguageAction = { type: 'CHANGE_LANGUAGE'; payload: string };
-
-// type Action = UserSuccessAction | UserFailureAction | ChangeLanguageAction;
+import { State } from "../../store/types";
 
 const Header: React.FC = () => {
-  const language: string = useSelector((state: State) => state.language);
-  const dispatch = useDispatch();
+  const language: string = useAppSelector((state: State) => state.language);
+  const dispatch = useAppDispatch();
   const currentPath = usePathname();
   const switchLang = () => {
     if (language === "ar") {
-      dispatch<any>(changeLanguage("en"));
+      dispatch(changeLanguage("en"));
     } else {
-      dispatch<any>(changeLanguage("ar"));
+      dispatch(changeLanguage("ar"));
     }
   };
   return (
