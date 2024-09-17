@@ -21,15 +21,21 @@ interface State {
   language: string;
   error: string | null;
 }
+// type UserSuccessAction = { type: 'USER_SUCCESS'; payload: User[] };
+// type UserFailureAction = { type: 'USER_FAILURE'; error: string };
+// type ChangeLanguageAction = { type: 'CHANGE_LANGUAGE'; payload: string };
+
+// type Action = UserSuccessAction | UserFailureAction | ChangeLanguageAction;
+
 const Header: React.FC = () => {
   const language: string = useSelector((state: State) => state.language);
   const dispatch = useDispatch();
   const currentPath = usePathname();
   const switchLang = () => {
     if (language === "ar") {
-      dispatch(changeLanguage("en"));
+      dispatch<any>(changeLanguage("en"));
     } else {
-      dispatch(changeLanguage("ar"));
+      dispatch<any>(changeLanguage("ar"));
     }
   };
   return (

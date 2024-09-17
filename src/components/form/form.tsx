@@ -68,7 +68,7 @@ const language:string = useSelector((state: State) => state.language);
     if (Object.keys(formErrors).length === 0) {
       setErrors({});
       console.log(formData);
-      dispatch(createUserapi(formData));
+      dispatch<any>(createUserapi(formData));
       window.location.reload();
     } else {
       setErrors(formErrors);

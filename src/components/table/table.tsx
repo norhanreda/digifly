@@ -23,7 +23,7 @@ const Table: React.FC = () => {
   const language:string = useSelector((state: State) => state.language); 
 
   useEffect(() => {
-    dispatch(fetchUser());
+    dispatch<any>(fetchUser());
   }, [dispatch]);
 
   

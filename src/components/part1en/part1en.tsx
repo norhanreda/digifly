@@ -42,13 +42,13 @@ const Part1en: React.FC = () => {
 
         {language === 'en' && (
           <p>
-            Utilize the provided Strapi API from the assessment to post user data into your Redux store. You are required to add one user into the 'users' collection and display this data in a table using a GET request. Ensure the implementation of Redux for state management, including both POST requests for adding a user and GET requests for displaying data in the table.
+            Utilize the provided Strapi API from the assessment to post user data into your Redux store. You are required to add one user into the &apos;users&apos; collection and display this data in a table using a GET request. Ensure the implementation of Redux for state management, including both POST requests for adding a user and GET requests for displaying data in the table.
           </p>
         )}
 
         {language === 'ar' && (
-          <p dir="rtl">
-            استخدم واجهة برمجة تطبيقات Strapi المقدمة من التقييم لنشر بيانات المستخدم في متجر Redux الخاص بك. يجب عليك إضافة مستخدم واحد إلى مجموعة "المستخدمين وعرض هذه البيانات في جدول باستخدام طلب GET. تأكد من تنفيذ Redux لإدارة الحالة، بما في ذلك طلبات POST الإضافة مستخدم وطلبات GET لعرض البيانات في الجدول.
+          <p dir="rtl" lang='ar'>
+           استخدم واجهة برمجة تطبيقات Strapi المقدمة من التقييم لنشر بيانات المستخدم في متجر Redux الخاص بك. يجب عليك إضافة مستخدم واحد إلى مجموعة &quot;المستخدمين&quot; وعرض هذه البيانات في جدول باستخدام طلب GET. تأكد من تنفيذ Redux لإدارة الحالة، بما في ذلك طلبات POST الإضافة مستخدم وطلبات GET لعرض البيانات في الجدول.
           </p>
         )}
 
