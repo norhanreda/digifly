@@ -12,8 +12,8 @@ const Map: React.FC = () => {
     let map: L.Map | undefined;
     let marker: L.Marker | undefined;
 
-    if (typeof window !== 'undefined') {
-      // Check if the map is already initialized
+    // if (typeof window !== 'undefined') {
+    //   // Check if the map is already initialized
       if (!map) {
         map = L.map('map').setView([30.061748208037105, 31.337524913021518], 20); 
         
@@ -45,7 +45,7 @@ const Map: React.FC = () => {
           }).openTooltip();
         }
       }
-    }
+    // }
 
     return () => {
       // Clean up the map instance when the component unmounts
