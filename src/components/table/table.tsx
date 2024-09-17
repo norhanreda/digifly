@@ -26,6 +26,8 @@ const Table: React.FC = () => {
     dispatch(fetchUser());
   }, [dispatch]);
 
+  
+
   return (
     <>
       {language==="en" && <div className="col">
@@ -41,6 +43,7 @@ const Table: React.FC = () => {
           </thead>
           <tbody>
             {users.map((user: User) => (
+
               <tr key={user.id}>
                 <td>{user.FirstName}</td>
                 <td>{user.LastName}</td>
