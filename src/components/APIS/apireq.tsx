@@ -1,4 +1,5 @@
 import BASE_URL from "../APIS/api"
+import {FormData} from "../../store/types"
 const getUsers = async () => {
   try {
     const response = await fetch(`${BASE_URL}/user-informations`);
@@ -15,7 +16,7 @@ const getUsers = async () => {
   }
 };
 
-const createUser = async (userData) => {
+const createUser = async (userData:FormData) => {
     try {
         const response = await fetch(`${BASE_URL}/user-informations`, {
             method: 'POST',
