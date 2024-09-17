@@ -1,5 +1,25 @@
 This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
 
+## live demo of the website 
+https://digifly-hjop.vercel.app/
+
+
+
+### how to use the app local 
+
+## clone the repo 
+
+First,clone the repo using 
+git clone "https://github.com/norhanreda/digifly"
+
+## change the directory to the project 
+
+cd ./digifly
+
+## install needed lib
+npm install
+
+
 ## Getting Started
 
 First, run the development server:
@@ -13,6 +33,10 @@ pnpm dev
 # or
 bun dev
 ```
+
+## for backend check this :
+https://github.com/DigiFly-Development/Frontend-Assessment-Backend
+
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
